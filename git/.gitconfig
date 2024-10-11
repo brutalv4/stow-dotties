@@ -1,0 +1,34 @@
+[user]
+	name = Vladimir Bredikhin
+	email = brutal.v4@gmail.com
+
+[pull]
+	rebase = true
+
+[rebase]
+	autoStash = true
+
+[core]
+	excludesfile = ~/.gitignore
+	editor = code --wait
+
+[merge]
+	autoStash = true
+
+[checkout]
+	autoStash = true
+
+[init]
+	defaultBranch = main
+
+[color]
+	ui = auto
+
+[alias]
+	hide = update-index --skip-worktree
+	hide-modified = ! git ls-files -m | xargs git update-index --skip-worktree
+	unhide = update-index --no-skip-worktree
+	unhide-all = ! git ls-files -v | grep '^S' | cut -c3- | xargs git update-index --no-skip-worktree
+	hidden = ! git ls-files -v | grep '^S' | cut -c3-
+	hidden-edit = ! git ls-files -v | grep '^S' | cut -c3- | xargs $(git config --global core.editor|cut -d ' ' -f1)
+
