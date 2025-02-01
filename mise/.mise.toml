@@ -1,0 +1,55 @@
+[env]
+PF = '.mise/.patch'
+HF = '.mise/.hidden'
+
+[tasks.start]
+run = [
+  "mise run prepare",
+  "mise run watch",
+  "mise run cleanup",
+]
+
+[tasks.prepare]
+run = [
+  "mise run patch",
+  "mise run hide"
+]
+hide = true
+
+[tasks.watch]
+run = [
+  "$PREWATCH",
+  "$WATCH",
+  "$POSTWATCH"
+]
+hide = true
+
+[tasks.cleanup]
+run = [
+  "mise run unpatch",
+  "mise run unhide"
+]
+hide = true
+
+[tasks.patch]
+description = "Apply patch"
+run = "[ -e $PATCH ] && echo \"Applying patch $PATCH\" && git apply $PATCH --allow-empty && echo $PATCH > $PF || echo \"No patch file found\""
+hide = true
+
+[tasks.hide]
+description = "Hide patched"
+run = "[ -e $PATCH ] && grep '+++' $PATCH | cut -c7- > $HF && cat $HF | xargs git hide && echo \"Following file(s) are modified and hidden:\" && cat $HF || exit 0"
+hide = true
+
+[tasks.unpatch]
+description = "Restore patch"
+run = "[ -e $PATCH ] && git apply -R $PATCH --allow-empty && rm $PF || exit 0"
+hide = true
+
+[tasks.unhide]
+description = "Unhide patched"
+run = "if [ -e $HF ]; then cat $HF | xargs git unhide && rm $HF ; else [ -e $PATCH ] && grep '+++' $PATCH | cut -c7-; fi | xargs git unhide || exit 0"
+hide = true
+
+[tasks.browse]
+run = "open http://localhost:$PORT"

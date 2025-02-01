@@ -1,0 +1,2 @@
+[tasks.omz]
+run = "stow oh-my-zsh"

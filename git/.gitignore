@@ -1,3 +1,4 @@
+## Mac OS
 # General
 .DS_Store
 .AppleDouble
@@ -25,3 +26,7 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk 
+
+## Custom
+tmp
+temp

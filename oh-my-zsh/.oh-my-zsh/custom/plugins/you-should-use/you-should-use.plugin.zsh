@@ -1,0 +1,1 @@
+source $HOMEBREW_PREFIX/share/zsh-you-should-use/you-should-use.plugin.zsh

@@ -1,0 +1,36 @@
+[tools]
+awscli = "latest"
+aws-sso-cli = "latest"
+bat = "latest"
+direnv = "latest"
+go = "latest"
+gradle = "latest"
+java = "lts"
+lazydocker = "latest"
+lazygit = "latest"
+node = "lts"
+"npm:npkill" = "latest"
+"npm:serve" = "latest"
+"npm:yarn" = "latest"
+pipx = "latest"
+"pipx:django" = "latest"
+"pipx:notebook" = "latest"
+pnpm = "latest"
+python = "latest"
+uv = "latest"
+bun = "latest"
+usage = "latest"
+
+[env]
+MISE_USE_TOML = "1"
+MISE_NOT_FOUND_AUTO_INSTALL = "true"
+
+[settings]
+legacy_version_file = false
+experimental = true
+
+[settings.pipx]
+uvx = true
+
+[settings.npm]
+bun = true

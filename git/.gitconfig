@@ -1,6 +1,7 @@
 [user]
 	name = Vladimir Bredikhin
 	email = brutal.v4@gmail.com
+  	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG+6eGHEerEHFv7E7pbbB4aa5qTCV7G5vA0ClORNsvV1
 
 [pull]
 	rebase = true
@@ -32,3 +33,11 @@
 	hidden = ! git ls-files -v | grep '^S' | cut -c3-
 	hidden-edit = ! git ls-files -v | grep '^S' | cut -c3- | xargs $(git config --global core.editor|cut -d ' ' -f1)
 
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[commit]
+  gpgsign = true
