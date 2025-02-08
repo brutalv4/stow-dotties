@@ -1,2 +1,5 @@
+[tasks.omz-dry]
+run = "stow -n omz"
+
 [tasks.omz]
 run = "stow omz"
